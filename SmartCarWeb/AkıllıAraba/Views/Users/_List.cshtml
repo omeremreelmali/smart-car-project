@@ -1,0 +1,80 @@
+﻿@model  List<AkıllıAraba.Models.UsersViewModel>
+
+<div class="card mb-3">
+    @if (Model.Count > 0)
+    {
+        <table class="table table-striped table-hover" id="veriler">
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th class="noshort">Email</th>
+                    <th class="noshort">TC</th>
+                    <th class="noshort"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td >@Html.DisplayFor(m => item.name)</td>
+                        <td>@Html.DisplayFor(m => item.surname)</td>
+                        <td>@Html.DisplayFor(m => item.email)</td>
+                        <td>@Html.DisplayFor(m => item.tc)</td>
+                        <td style="text-align:center">
+                            <div class="btn-group btn-group-md">
+                                <a class="btn btn-outline-secondary btn-md" title="Detay" data-toggle="tooltip" data-placement="left" href="@Url.Action("Details","Users",new {Id = item.id})"><i class="fa fa-eye"></i></a>
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" title="İşlemler"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                                    <span class="sr-only">İşlemler</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    @Html.ActionLink("Güncelle", "Edit", "Users", new { id = item.id }, new { @class = "dropdown-item" })
+                                    @Html.ActionLink("Araba Ekle", "Create", "Users", new { id = item.id }, new { @class = "dropdown-item" })
+                                    @Html.ActionLink("Sil", "Delete", "Users", new { id = item.id }, new { @class = "dropdown-item" })
+                                </div>
+                            </div>    
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div>Kayıtlı Kullanıcı Yok</div>
+    }
+</div>
+<style>
+    .pagination {
+        font-size: 15px;
+    }
+
+        .pagination li a {
+            margin-left: 15px;
+        }
+
+    #veriler_wrapper {
+        margin-top: 15px
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('#veriler').DataTable({
+            "lengthMenu": [5, 15, 25, 50],
+            "order": [0, "asc"],
+            "processing": true,
+            "columnDefs": [
+                {
+                    targets: ["noshort"],
+                    orderable: false
+                }
+            ],
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json",
+            }
+        });
+        var table = $('#veriler').DataTable();
+    });
+
+</script>

@@ -1,0 +1,53 @@
+﻿@model  AkıllıAraba.Models.UsersViewModel
+
+<div class="container mt-3 ">
+    <div class="w-75 mx-auto">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h3 class="text-white">Kullanıcı Ekleme </h3>
+            </div>
+            <div class="card-body">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    @Html.TextBoxFor(p => p.tc, new { @class = "form-control form-control col-12", @type = "number", min = "0", placeholder = "TC Kimlik" })
+                    <div class="form-group">
+                        @Html.ValidationMessageFor(m => m.tc, "", new { @style = "color:red" })
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    @Html.TextBoxFor(p => p.name, new { @class = "form-control form-control col-12", placeholder = "Ad" })
+                    @Html.ValidationMessageFor(m => m.name, "", new { @style = "color:red" })
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                    </div>
+                    @Html.TextBoxFor(p => p.surname, new { @class = "form-control form-control col-12", placeholder = "Soyad" })
+                    @Html.ValidationMessageFor(m => m.surname, "", new { @style = "color:red" })
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope-open"></i></span>
+                    </div>
+                    @Html.TextBoxFor(p => p.email, new { @class = "form-control form-control col-12", placeholder = "Email" })
+                    @Html.ValidationMessageFor(m => m.email, "", new { @style = "color:red" })
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    @Html.TextBoxFor(p => p.code, new { @class = "form-control form-control col-12", @type = "number", min = "0", placeholder = "Code" })
+                    @Html.ValidationMessageFor(m => m.code, "", new { @style = "color:red" })
+                </div>
+                <hr>
+                <div>@ViewBag.Mesaj</div>
+                <button class="btn btn-primary btn-lg btn-block">Kullanıcı Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>

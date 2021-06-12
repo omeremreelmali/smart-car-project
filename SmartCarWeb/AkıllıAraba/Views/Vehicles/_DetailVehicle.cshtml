@@ -1,0 +1,47 @@
+﻿
+
+@{
+    ViewBag.Title = "VehicleDetail";
+    Layout = "~/Views/Shared/_LayoutClone.cshtml";
+}
+
+
+@model  AkıllıAraba.Models.VehicleDetailModel
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <ul class="list-group text-center" style="width:45%; margin-top: 10px;">
+            <li class="list-group-item"><h4>@Model.plate</h4></li>
+            <li class="list-group-item">@Model.speed KM/S</li>
+            <li class="list-group-item">
+                @Html.ActionLink("" + @Model.stop_state + "", "StopState", "Vehicles", new { }, new { @class = "btn " + @Model.butonRenk + "" })
+            </li>
+            <li class="list-group-item"><p class="@Model.durumRenk">@Model.vehicle_state</p></li>
+            <li class="list-group-item"><div id="map"></div></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+
+    <script>
+        function initMap() {
+            var uluru = { lat: @Model.enlem, lng: @Model.boylam};
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 12, center: uluru });
+            var marker = new google.maps.Marker({ position: uluru, map: map });
+        }
+    </script>
+}
+
+
+
+
+
+
+
+

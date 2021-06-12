@@ -1,0 +1,44 @@
+﻿@model  AkıllıAraba.Models.LocationViewModel
+<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=e448930f-18af-48e0-8134-ac7dd5514591" type="text/javascript"></script>
+<script>
+ymaps.ready(init);
+function init() {
+    var myMap = new ymaps.Map("map", {
+            center: [@Model.enlem, @Model.boylam],
+            zoom: 11,
+    }, {
+            maxZoom : 18,
+            minZoom : 10
+    }),
+        objects = ymaps.geoQuery([
+            new ymaps.Placemark([@Model.enlem, @Model.boylam],{
+                balloonContent: " <b> Hızı </b> <strong>@Model.speed</strong>"
+            }),
+        ]).addToMap(myMap),
+        circle = new ymaps.Circle([[38.4918203, 27.7041138], 10000], null);
+    myMap.geoObjects.add(circle);
+        circle.events.add("overlaychange",function() {
+        var objectsInsideCircle = objects.searchInside(circle);
+        objectsInsideCircle.setOptions('preset', 'islands#redIcon');
+        objects.remove(objectsInsideCircle).setOptions('preset', 'islands#blueIcon');
+    });
+    }
+</script>
+<style>
+    b {
+        font-size: 15px
+    }
+
+    strong {
+        font-size: 25px;
+        color: red;
+        font-weight: 600;
+    }
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div id="map" style="height:400px"></div>
+        </div>
+    </div>
+</div>

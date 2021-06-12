@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AracEkle">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Araç Ekleme Talebi"
+            android:textColor="#2CA7E0"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="25dp"
+            />
+
+        <EditText
+            android:id="@+id/arac_plaka_e"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/edit"
+            android:drawableLeft="@drawable/ic_plaka"
+            android:drawablePadding="10dp"
+            android:hint="Araç Plakası"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColorHint="#2CA7E0" />
+
+
+        <EditText
+            android:id="@+id/arac_yakit_e"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edit"
+            android:drawableLeft="@drawable/ic_yakit"
+            android:drawablePadding="10dp"
+            android:hint="Yakıt Türü"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColorHint="#2CA7E0" />
+
+
+        <EditText
+            android:id="@+id/arac_renk_e"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edit"
+            android:drawableLeft="@drawable/ic_renk"
+            android:drawablePadding="10dp"
+            android:hint="Renk"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColorHint="#2CA7E0" />
+
+        <Button
+            android:id="@+id/talepOlusturBtn_e"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button"
+            android:text="Talep Oluştur"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{5798CF02-9896-422F-A5A3-ACE953284B74}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AkıllıAraba/Views/Account/MyAccount.cshtml">
+    <Files>
+      <File FileName="AkıllıAraba/Views/Kullanıcı/_CreateEdit.cshtml" Line="11" Column="73" />
+      <File FileName="AkıllıAraba/Views/Account/Details.cshtml" Line="28" Column="17" />
+      <File FileName="AkıllıAraba/Views/Kullanıcı/Edit.cshtml" Line="1" Column="1" />
+      <File FileName="AkıllıAraba/Views/Account/MyAccount.cshtml" Line="25" Column="22" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AkıllıAraba" expanded="True">
+            <Node name="AkıllıAraba" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True">
+                  <Node name="MyAccount.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.AkıllıAraba PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

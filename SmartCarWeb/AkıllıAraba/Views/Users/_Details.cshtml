@@ -1,0 +1,42 @@
+﻿@model  List<AkıllıAraba.Models.UsersViewModel>
+<table class="table table-striped table-hover my-5">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Email</th>
+            <th>Marka</th>
+            <th>Şehir</th>
+            <th>Plaka</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => item.name)</td>
+                <td>@Html.DisplayFor(m => item.surname)</td>
+                <td>@Html.DisplayFor(m => item.email)</td>
+                <td>@Html.DisplayFor(m => item.Marka)</td>
+                <td>@Html.DisplayFor(m => item.CityName)</td>
+                <td>@Html.DisplayFor(m => item.Plaka)</td>
+                <td style="text-align:right">
+                    <div class="btn-group btn-group-sm">
+                        <a href="@Url.Action("DeleteCar","Users",new {Id = item.id})" class="btn btn-light ml-1 d-inline"><i class="fas fa-trash-alt"></i></a>
+                        <a href="@Url.Action("Location","Users",new {Id = item.id})" class="btn btn-outline-danger ml-1 d-inline"><i class="fa fa-location-arrow"></i> Konum</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    .pagination {
+        font-size: 25px;
+    }
+
+        .pagination li a {
+            margin-left: 15px;
+        }
+</style>

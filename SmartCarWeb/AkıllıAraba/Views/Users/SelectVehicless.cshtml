@@ -1,0 +1,17 @@
+﻿@model AkıllıAraba.Models.VehiclesViewModel
+
+@using (Ajax.BeginForm("SelectVehicle", "Users", null, new AjaxOptions { UpdateTargetId = "tempContainer" }))
+{
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+        </div>
+        @Html.DropDownListFor(p => p.plate_code, (List<SelectListItem>)ViewBag.lecture, new { @class = "form-control col-12", data_placeholder = "...Araç Markasını Seçiniz..." })
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+        </div>
+        @Html.DropDownListFor(p => p.plate_code, (List<SelectListItem>)ViewBag.lecture, new { @class = "form-control col-12", data_placeholder = "...Araç Markasını Seçiniz..." })
+    </div>
+}

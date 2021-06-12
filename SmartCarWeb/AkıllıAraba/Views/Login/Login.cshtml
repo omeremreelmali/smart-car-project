@@ -1,0 +1,62 @@
+﻿@model AkıllıAraba.Models.LoginViewModels
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="d-flex align-items-center flex-column justify-content-center h-100 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-white">Giris Yap</h3>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                {
+                    <div class="input-group form-group ">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        @Html.TextBoxFor(p => p.tc, new { @class = " form-control col-12", placeholder = "TC" })
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        @Html.TextBoxFor(p => p.code, new { @class = "form-control col-12", @type = "number", min = "0", placeholder = "Code" })
+                    </div>
+                    <div>@ViewBag.Mesaj</div>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-lg btn-block">Gönder</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    body, html {
+        height: 100%;
+    }
+
+    body {
+
+        background-image: url('/Image/login-bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .card {
+        background-color: rgba(0, 0, 0, 0.5) !important;
+    }
+</style>
+
+

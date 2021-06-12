@@ -1,0 +1,52 @@
+﻿<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="@Url.Action("Index","Home")"><img src="~/Image/Logo.jpg" class="rounded-circle d-block ui-w-30" width="40" height="40" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            @if (User.IsInRole("0"))
+            {
+                <ul class="navbar-nav mr-auto ">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Index","Vehicles")">Araba Yönetimi <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            }
+            @if (User.IsInRole("99"))
+            {
+                <ul class="navbar-nav mr-auto ">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Index","Vehicles")">Araba Yönetimi <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Index","Users")">Kullanıcı Yönetimi<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Location","Location")">Konum Yönetimi<span class="sr-only">(current)</span></a>
+                    </li>
+                    
+
+                </ul>
+                <a href="@Url.Action("LogOut","Login")" class="btn btn-outline-primary">Çıkış</a>
+            }
+        </div>
+        @if (User.IsInRole("0"))
+        {
+            <form class="form-check-inline my-2 my-lg-0">
+                <div class="dropdown nav-item ml-auto d-block ">
+                    <a class="dropdown-toggle float-right" data-toggle="dropdown">
+                        <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
+                            <img width="40" height="40" class="rounded-circle d-block ui-w-30" src="~/Image/wallhaven-5d3wy3.jpg" />
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right ">
+                        <p class="dropdown-item disabled">@HttpContext.Current.User.Identity.Name</p>
+                        <a href="@Url.Action("Index","Account")" class="dropdown-item ">Profilim</a>
+                        <a href="@Url.Action("LogOut","Login")" class="dropdown-item float-right">Çıkış</a>
+                    </div>
+                </div>
+            </form>
+        }
+    </nav>
+</div>

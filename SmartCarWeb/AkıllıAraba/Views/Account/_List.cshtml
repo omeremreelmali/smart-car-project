@@ -1,0 +1,53 @@
+﻿@model  List<AkıllıAraba.Models.UsersViewModel>
+
+@if (Model.Count > 0)
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th class="noshort">Email</th>
+                <th class="noshort">Email</th>
+                <th class="noshort">Email</th>
+                <th class="noshort">TC</th>
+                <th class="noshort"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => item.name)</td>
+                    <td>@Html.DisplayFor(m => item.surname)</td>
+                    <td>@Html.DisplayFor(m => item.email)</td>
+                    <td>@Html.DisplayFor(m => item.Marka)</td>
+                    <td>@Html.DisplayFor(m => item.Plaka)</td>
+                    <td>@Html.DisplayFor(m => item.CityName)</td>
+                    <td style="text-align:right">
+                        <div class="btn-group btn-group-sm">
+                            <a href="@Url.Action("Location","Account",new {Id = item.id})" class="btn btn-outline-danger ml-1 d-inline"><i class="fa fa-location-arrow"></i> Konum </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>Kayıtlı Kullanıcı Yok</div>
+}
+<style>
+    .pagination {
+        font-size: 25px;
+    }
+
+        .pagination li a {
+            margin-left: 15px;
+        }
+
+    #veriler_wrapper {
+        margin-top: 15px
+    }
+</style>

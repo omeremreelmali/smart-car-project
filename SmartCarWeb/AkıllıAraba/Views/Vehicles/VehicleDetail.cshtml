@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "VehicleDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model AkıllıAraba.Models.VehicleDetailModel
+
+<style>
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px; /* The height is 400 pixels */
+        width: 100%; /* The width is the width of the web page */
+    }
+</style>
+
+
+<div class="d-flex align-items-center flex-column justify-content-center w-100  m-2">
+    <div class="card">
+        <div class="card-header text-center">
+            <h1>Simülasyon</h1>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Simulation", "Vehicles", FormMethod.Post))
+            {
+                <div class="input-group form-group ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-car"></i></span>
+                    </div>
+                    @Html.TextBoxFor(v => v.speed, new { @class = " form-control col-12", placeholder = "Hızı Giriniz" })
+                    @Html.TextBoxFor(v => v.stop_state, new { @class = "d-none", Value = ViewBag.State })
+                </div>
+                <div class="text-danger">
+                    @ViewBag.Mesaj
+                </div>
+                if (ViewBag.State == "1")
+                {
+                    <div class="text-success">
+                        Simülasyon Başladı
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-danger btn-lg btn-block">Durdur</button>
+                    </div>
+                }
+                if (ViewBag.State == "0" || ViewBag.State == null)
+                {
+                    if (ViewBag.State == "0")
+                    {
+                        <div class="text-danger">
+                            Simülasyon Durduruldu
+                        </div>
+                    }
+                    <div class="form-group">
+                        <button class="btn btn-success btn-lg btn-block">Başlat </button>
+                    </div>
+                }
+
+            }
+         <center>   @Html.ActionLink("Simülasyon Resetle ", "ResetSimulation", "Vehicles", new { }, new { @class = "btn btn-danger" }) </center>
+        </div>
+    </div>
+</div>
+
+<div id="refreshme">
+    @Html.Partial("_DetailVehicle", Model)
+</div>
+
+
+@section Scripts {
+
+    <script>
+        function refresh() {
+            $.get('/Vehicles/GetModelVehicle', function (result) {
+                $('#refreshme').html(result);
+
+            });
+        }
+        setInterval(refresh, 3000);
+
+
+    </script>
+}

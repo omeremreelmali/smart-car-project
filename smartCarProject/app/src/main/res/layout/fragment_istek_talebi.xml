@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".istekTalebi">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/baslik_istek_form"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="İstek Talep Formu"
+            android:textColor="#2CA7E0"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/istek_konu"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/edit"
+            android:drawableLeft="@drawable/ic_plaka"
+            android:drawablePadding="10dp"
+            android:hint="Konu"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColorHint="#2CA7E0" />
+
+
+        <EditText
+            android:id="@+id/istek_email"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edit"
+            android:drawableLeft="@drawable/ic_person"
+            android:drawablePadding="10dp"
+            android:hint="Email"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColorHint="#2CA7E0" />
+
+
+        <EditText
+            android:id="@+id/istek_mesaj"
+            android:layout_width="300dp"
+            android:inputType="textMultiLine"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edit"
+            android:drawableLeft="@drawable/ic_renk"
+            android:drawablePadding="10dp"
+            android:hint="Mesajınızı Yazınız"
+            android:padding="10dp"
+            android:textColorHint="#2CA7E0" />
+
+        <Button
+            android:id="@+id/talepOlusturBtn"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button"
+            android:onClick="talepButton"
+            android:text="Talep Oluştur"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+</FrameLayout>

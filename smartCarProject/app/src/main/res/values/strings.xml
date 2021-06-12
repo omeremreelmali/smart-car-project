@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">smartCarProject</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="arac_ekle">Arac Ekleme</string>
+    <string name="kullanıcı_ekle">Kullanıcı Ekleme</string>
+    <string name="twitterUsername">fixed_bugs</string>
+    <string name="localhostip">http://192.168.2.98</string>
+</resources>

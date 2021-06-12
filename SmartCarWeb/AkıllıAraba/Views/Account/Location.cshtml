@@ -1,0 +1,37 @@
+﻿@model  AkıllıAraba.Models.LocationViewModel
+<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=e448930f-18af-48e0-8134-ac7dd5514591" type="text/javascript"></script>
+<script>
+    ymaps.ready(init);
+    function init() {
+        var myMap = new ymaps.Map("map", {
+            center: [38.4918203, 27.7041138],
+            zoom: 15,
+        });
+        var myCircle = new ymaps.Circle([
+            [38.4918203, 27.7041138],
+            1000
+        ], {
+            balloonContent: "Radius of the circle: 1 km",
+            hintContent: "Move me"
+        }, {
+            fillColor: "#0000FF",
+            strokeColor: "#000000",
+            strokeOpacity: 1,
+            strokeWidth: 5,
+            opacity: 0.5,
+        });
+        myMap.geoObjects.add(myCircle);
+        myMap.geoObjects
+            .add(new ymaps.Placemark([@Model.enlem,@Model.boylam], {}, {
+            preset: 'islands#circleDotIcon',
+            iconColor: 'red'
+        }));
+    }
+</script>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div id="map" style="height:400px"></div>
+        </div>
+    </div>
+</div>

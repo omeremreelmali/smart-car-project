@@ -1,0 +1,67 @@
+﻿@model  List<AkıllıAraba.Models.LocationViewModel>
+<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=e448930f-18af-48e0-8134-ac7dd5514591" type="text/javascript"></script>
+<script>
+    var enlem = [];
+    var List = [];
+    var boylam = [];
+    var speed = [];
+    @foreach(var item in Model)
+                {
+                    <text>enlem.push(@item.enlem);</text>
+                    <text>boylam.push(@item.boylam);</text>
+                    <text>speed.push(@item.speed);</text>
+                }
+    ymaps.ready(function () {
+        var myMap = new ymaps.Map('map', {
+            center: [38.4918203, 27.7041138],
+            zoom: 9
+        }, {
+                maxZoom: 18,
+            minZoom : 5
+        }),
+            clusterer = new ymaps.Clusterer({
+                preset: 'islands#invertedVioletClusterIcons',
+                groupByCoordinates: false,
+                clusterDisableClickZoom: true,
+                clusterHideIconOnBalloonOpen: false,
+                geoObjectHideIconOnBalloonOpen: false
+            }),
+            getPointData = function (index) {
+                return {
+                    balloonContentBody: '<p>Your name: <input name="login"></p><p>',
+                    clusterCaption: 'placemark <strong>' + speed[index] + '</strong>'
+                };
+            },
+            getPointOptions = function () {
+                return {
+                    preset: 'islands#violetIcon'
+                };
+            },
+            points = []
+        for (var i = 0, y = 0; i < enlem.length, y < boylam.length; y++ , i++) {
+            points[i] = [enlem[i], boylam[y]]
+        }
+            geoObjects = [];
+        for (var i = 0, len = points.length; i < len; i++) {
+            geoObjects[i] = new ymaps.Placemark(points[i], getPointData(i), getPointOptions());
+        }
+        clusterer.options.set({
+            gridSize: 80,
+            clusterDisableClickZoom: true
+        });
+        clusterer.add(geoObjects);
+        myMap.geoObjects.add(clusterer);
+        myMap.setBounds(clusterer.getBounds());
+    });
+</script>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div id="map" style="height:400px"></div>
+        </div>
+        <div>
+            <p id="enlem"></p>
+            <p id="boylam"></p>
+        </div>
+    </div>
+</div>

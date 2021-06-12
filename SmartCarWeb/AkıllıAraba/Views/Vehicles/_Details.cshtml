@@ -1,0 +1,47 @@
+﻿@model  List<AkıllıAraba.Models.VehiclesViewModel>
+<table class="table table-striped table-hover my-5">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Email</th>
+            <th>Plaka</th>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Yakıt Türü</th>
+            <th>Renk</th>
+            <th>Şehir</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => item.name)</td>
+                <td>@Html.DisplayFor(m => item.surname)</td>
+                <td>@Html.DisplayFor(m => item.email)</td>
+                <td>@Html.DisplayFor(m => item.plate)</td>
+                <td>@Html.DisplayFor(m => item.brand)</td>
+                <td>@Html.DisplayFor(m => item.model)</td>
+                <td>@Html.DisplayFor(m => item.engine_model)</td>
+                <td>@Html.DisplayFor(m => item.color)</td>
+                <td>@Html.DisplayFor(m => item.city_code)</td>
+                <td style="text-align:right">
+                    <div class="btn-group btn-group-sm">
+                        <a href="@Url.Action("Location","Vehicles",new {Id = item.user_id})" class="btn btn-outline-danger ml-1 d-inline"><i class="fa fa-location-arrow"></i> Konum</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    .pagination {
+        font-size: 25px;
+    }
+
+        .pagination li a {
+            margin-left: 15px;
+        }
+</style>
